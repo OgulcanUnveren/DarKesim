@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>An-naas Banishment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/hacker.css') }}">
+
+    <style>
+    .tall-row {
+        margin-top: 40px;
+    }
+    .modal {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        z-index: 1;
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+
+ 
+    <div class="container">
+
+         <!-- Jumbotron -->
+         <div class="jumbotron">
+            <h1>Dar Kesim</h1>
+            <p>Yet another restriction app from th3d1gger</p>
+            
+
+        </div>
+
+        
+        
+        <div class="row tall-row">
+            <div class="col-lg-12">
+                <h1>Logs</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Bağlantılar</th>
+   			    <th>Addres</th>
+<th>Port</th>
+<th>Time</th>
+<th>Summary</th>
+                         
+                        </tr>
+                    </thead>
+                    <tbody>
+  
+{% for dispossed_con in history %}
+
+<tr>
+    <td>{{dispossed_con['id']}}</td>
+    <td>{{dispossed_con['raddr']}}</td>
+    <td>{{dispossed_con['rport']}}</td>
+    <td>{{dispossed_con['Time']}}</td>
+    <td>{{dispossed_con['wholeconn']}}</td>
+</tr>
+{% endfor %}
+                       
+  
+                        
+                    </tbody>
+                </table> 
+            </div>
+        </div>
+
+       
+    </div>
+
+    <script src="{{ url_for('static', filename= 'css/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'css/bootstrap.min.js') }}"></script>
+
+   
+    <script>
+    $(document).ready(function(){
+       
+setTimeout(function() {
+  location.reload();
+}, 3000);
+
+    });
+    </script>
+
+
+
+</body></html>
